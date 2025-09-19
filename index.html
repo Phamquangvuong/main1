@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LOVE TRA MY</title>
+    <title>lOVE TRA MY</title>
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet"/>
     <link rel="stylesheet" href="/static/css/app.css" />
   </head>
@@ -68,7 +68,7 @@
               "CÁ🐟",
               "ANH YÊU EM"
             ],
-            "music": "http://46.247.108.59:6184/music/a.mp3"
+            "music": "a.mp3"
           },
           "clientId": "/"
         },
@@ -80,33 +80,8 @@
     >
     </div>
 
-    <!-- Thêm audio phát nhạc -->
-    <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    try {
-      // Lấy data từ #app
-      const app = document.getElementById("app");
-      const data = JSON.parse(app.getAttribute("data-page"));
-
-      // Lấy link nhạc trong client.music
-      const musicUrl = data.props.client.music;
-
-      if (musicUrl) {
-        const audio = document.createElement("audio");
-        audio.src = musicUrl;
-        audio.autoplay = true;
-        audio.loop = true;
-        audio.id = "bg-music";
-
-        // Thêm vào body
-        document.body.appendChild(audio);
-      }
-    } catch (e) {
-      console.error("Không load được nhạc:", e);
-    }
-  });
-</script>
-
+    <!-- Audio phát nhạc tự động -->
+    <audio id="bg-music" src="a.mp3" autoplay loop></audio>
 
     <script type="module" src="/static/js/app.js"></script>
     <script type="module" src="/static/js/home.js"></script>
