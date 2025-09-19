@@ -81,7 +81,32 @@
     </div>
 
     <!-- Thêm audio phát nhạc -->
-    <audio id="bg-music" src="http://46.247.108.59:6184/music/a.mp3" autoplay loop></audio>
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    try {
+      // Lấy data từ #app
+      const app = document.getElementById("app");
+      const data = JSON.parse(app.getAttribute("data-page"));
+
+      // Lấy link nhạc trong client.music
+      const musicUrl = data.props.client.music;
+
+      if (musicUrl) {
+        const audio = document.createElement("audio");
+        audio.src = musicUrl;
+        audio.autoplay = true;
+        audio.loop = true;
+        audio.id = "bg-music";
+
+        // Thêm vào body
+        document.body.appendChild(audio);
+      }
+    } catch (e) {
+      console.error("Không load được nhạc:", e);
+    }
+  });
+</script>
+
 
     <script type="module" src="/static/js/app.js"></script>
     <script type="module" src="/static/js/home.js"></script>
